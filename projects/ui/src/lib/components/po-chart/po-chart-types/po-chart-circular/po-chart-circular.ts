@@ -27,22 +27,11 @@ export class PoChartCircular extends PoChartDynamicTypeComponent implements OnDe
   chartItemStartAngle = poChartStartAngle;
   windowResizeEmitter: Subject<any> = new Subject();
 
-  // tslint:disable-next-line: use-type-alias
-  protected _series: Array<PoPieChartSeries | PoDonutChartSeries | PoChartGaugeSerie>;
-
   private animationRunning: boolean;
   private chartItemEndAngle: number;
   private chartItemsEndAngleList: Array<number> = [];
   private svgPathElementsList: Array<string> = [];
   private svgTextElementsList: Array<string> = [];
-
-  set series(value: Array<PoPieChartSeries | PoDonutChartSeries | PoChartGaugeSerie>) {
-    this._series = this.getSeriesWithValue(value);
-  }
-
-  get series() {
-    return this._series;
-  }
 
   constructor(protected el: ElementRef, private ngZone: NgZone, private renderer: Renderer2) {
     super();
@@ -159,7 +148,6 @@ export class PoChartCircular extends PoChartDynamicTypeComponent implements OnDe
 
     return newSeries;
   }
-
   private animationSetup() {
     this.chartItemEndAngle = this.chartItemsEndAngleList[0];
     this.animationRunning = true;
