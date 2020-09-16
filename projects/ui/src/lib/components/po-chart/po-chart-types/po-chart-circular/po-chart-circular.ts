@@ -1,3 +1,5 @@
+/* tslint:disable:use-type-alias */
+
 import { Directive, ElementRef, NgZone, OnDestroy, OnInit, Renderer2 } from '@angular/core';
 import { Subject } from 'rxjs';
 
